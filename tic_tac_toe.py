@@ -21,9 +21,9 @@ def get_move(board, player):
     while not found:
         while x == 0 or y == 0:
             pos = []
-            text_position = input("Please provide a position on the board: ").upper()
+            text_position = input(f"Please provide a {change_player_mark(player)} position on the board: ").upper()
             while len(text_position) != 2:
-                text_position = input("Please provide a position on the board: ").upper()
+                text_position = input(f"Please provide a {change_player_mark(player)} position on the board: ").upper()
             row = text_position[0]
             col = text_position[1]
            
