@@ -50,6 +50,18 @@ class TestTicTacToe(unittest.TestCase):
         board = [[' X ', ' . ', ' . '], [' . ', ' X ', ' . '], [' . ', ' . ', ' . ']]
         self.assertEqual(tic_tac_toe.get_smart_ai_move(board, " X "), (2, 2))
 
+    def test_get_opposite_player_if_argument_is_0_the_return_1(self):
+        self.assertEqual(tic_tac_toe.get_opposite_player(0), 1)
+
+    def test_get_opposite_player_if_argument_is_1_the_return_0(self):
+        self.assertEqual(tic_tac_toe.get_opposite_player(1), 0)
+
+    def test_get_change_player_mark_if_argument_is_0_the_return_O(self):
+        self.assertEqual(tic_tac_toe.change_player_mark(0), " O ")
+
+    def test_get_opposite_player_if_argument_is_1_the_return_X(self):
+        self.assertEqual(tic_tac_toe.change_player_mark(1), " X ")
+
 
 def dummy_move_function(board, player):
     return 2, 2

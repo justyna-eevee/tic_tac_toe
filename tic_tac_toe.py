@@ -146,6 +146,7 @@ def print_result(board, winner):
 
 
 def change_player_mark(player):
+    """Change player digit to letter."""
     if player == 1:
         return " X "
     else:
@@ -201,22 +202,12 @@ def ai_ai_mode():
     main_game_mode(board, get_smart_ai_move, get_smart_ai_move)
 
 
-def tictactoe_game(mode='HUMAN-HUMAN'):
-    """Choose game mode and run it."""
-    if mode == "HUMAN-HUMAN":
-        human_human_mode()
-    if mode == "AI-HUMAN":
-        ai_human_mode()
-    if mode == "HUMAN-AI":
-        human_ai_mode()
-    if mode == "AI-AI":
-        ai_ai_mode()
-
-
 def get_menu_option():
     """Choose game option."""
     while True:
         game_option = input("""
+    TIC TAC TOE GAME 
+    
     1. HUMAN-HUMAN
     2. AI-HUMAN
     3. HUMAN-AI
@@ -245,6 +236,18 @@ def main_menu():
         elif game_option == "5":
             print("GOOD BYE")
             break
+
+
+def tictactoe_game(mode='HUMAN-HUMAN'):
+    """Choose game mode and run it."""
+    if mode == "HUMAN-HUMAN":
+        human_human_mode()
+    if mode == "AI-HUMAN":
+        ai_human_mode()
+    if mode == "HUMAN-AI":
+        human_ai_mode()
+    if mode == "AI-AI":
+        ai_ai_mode()
 
 
 def check_horizontal(board, player):
@@ -281,7 +284,7 @@ def check_vertical(board, player):
     return False
 
 
-def check_diagonal(board, player): #j
+def check_diagonal(board, player):
     """Check if player can win diagonally."""
     if board[0][0] == player and board[1][1] == player and board[2][2] == " . ":
         return 2, 2
@@ -333,6 +336,7 @@ def get_smart_ai_move(board, player):
     if not move:
         move = get_ai_move(board, player)
 
+    print(f"AI move {change_player_mark(player)} ")
     return move
 
 
